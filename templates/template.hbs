@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chameleon Memory Usage Report</title>
+  <meta name="description" content="Chameleon memory usage report" />
+
+  <style>
+      .chart-wrapper {
+          position: relative;
+          width: 90%;
+          margin: auto;
+          height: 50vh;
+      }
+      .hidden {
+          display: none;
+      }
+  </style>
+</head>
+
+<body>
+    <h1>Memory Usage Report</h1>
+    
+    <div class="chart-wrapper">
+        <canvas id="reportChart" width="600" height="500"></canvas>
+    </div>
+
+    <input id="report-data" type="hidden" class="hidden" value="{{report}}" />
+
+    <script src="js/Chart.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        const rawReportData = document.getElementById('report-data').value;
+        const reportData = JSON.parse(rawReportData);
+        window.CHAMELEON_CHART.setChartData( reportData );
+        window.CHAMELEON_CHART.initChart();
+    </script>
+</body>
+</html>`
