@@ -1,7 +1,7 @@
 {
-  "name": "ls",
+  "name": "chameleon-memory-consumption-visualizer",
   "version": "1.0.0",
-  "description": "Visualize memory usage reports -> generates HTML",
+  "description": "Visualize memory usage reports -> generates HTML graph",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

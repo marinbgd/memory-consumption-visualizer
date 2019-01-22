@@ -1,4 +1,4 @@
-window.CHAMELEON_CHART = (function() {
+window.CHAMELEON_CHART = (function () {
 
     const options = {
         responsive: false,
@@ -29,7 +29,7 @@ window.CHAMELEON_CHART = (function() {
                     labelString: 'Value'
                 },
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero: true
                 }
             }]
         }
@@ -45,24 +45,24 @@ window.CHAMELEON_CHART = (function() {
             type: 'line',
             data: {
                 labels,
-				datasets: [{
-					label: 'Memory in MB',
-					backgroundColor: '#ff0000',
-					borderColor: '#0000ff',
-					data,
-					fill: true,
-				}]
-			},
+                datasets: [{
+                    label: 'Memory in MB',
+                    backgroundColor: '#02e09a',
+                    borderColor: '#aa038e',
+                    data,
+                    fill: true,
+                }]
+            },
             options,
         });
     };
 
-    const setChartData = ( rawData ) => {
+    const setChartData = (rawData) => {
 
         // expects data to be an array of objects { time: [string timestamp], heap: [string] }
 
-        let newLabels = rawData.map( single => _formatDate(single.time) );
-        let newData = rawData.map( single => single.heap );
+        let newLabels = rawData.map(single => _formatDate(single.time));
+        let newData = rawData.map(single => single.heap);
 
         labels = newLabels;
         data = newData;
@@ -70,11 +70,11 @@ window.CHAMELEON_CHART = (function() {
 
     const _formatDate = (timestamp) => {
         const dateObj = new Date(timestamp);
-        const formattedDate = (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + '/' +  dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes();
+        const formattedDate = (dateObj.getMonth() + 1) + '/' + dateObj.getDate() + '/' + dateObj.getFullYear() + ' ' + dateObj.getHours() + ':' + dateObj.getMinutes();
         return formattedDate;
     };
 
-    const addChartData = ( newDataObject ) => {
+    const addChartData = (newDataObject) => {
         labels.push(newDataObject.label);
         data.push(newDataObject.value);
     };

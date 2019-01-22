@@ -1,5 +1,6 @@
 # WebStorm IDE project settings folder
 .idea
+build
 
 # Logs
 logs
