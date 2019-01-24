@@ -9,6 +9,7 @@
       body {
           background-color: #111;
           color: #fff;
+          font-family: sans-serif;
       }
       .chart-wrapper {
           position: relative;
@@ -19,25 +20,52 @@
       .hidden {
           display: none;
       }
+      .button {
+          font-size: 1.5em;
+          font-weight: bold;
+          display: inline-block;
+          border: none;
+          outline: none;
+          padding: 1em;
+          margin: 1em;
+          background: aquamarine;
+          color: #111;
+
+          transition: background-color 0.15s;
+      }
+      .button:hover,
+      .button:focus,
+      .button:active {
+          background: aqua;
+          color: #111;
+      }
+      .clearfix {
+          overflow: auto;
+      }
+      .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
+      }
   </style>
 </head>
 
 <body>
     <h1>Memory Usage Report</h1>
+
+    <aside class="clearfix">
+        <button id="ignoreTimeButton" type="button" class="button">Toggle Time/Occurrences mode</button>
+    </aside>
     
     <div class="chart-wrapper">
-        <canvas id="reportChart" width="600" height="500"></canvas>
+        <canvas id="reportChart" width="600" height="600"></canvas>
     </div>
 
     <input id="report-data" type="hidden" class="hidden" value="{{report}}" />
 
+    <script src="js/lodash.js"></script>
     <script src="js/Chart.bundle.min.js"></script>
-    <script src="js/index.js"></script>
-    <script>
-        const rawReportData = document.getElementById('report-data').value;
-        const reportData = JSON.parse(rawReportData);
-        window.CHAMELEON_CHART.setChartData( reportData );
-        window.CHAMELEON_CHART.initChart();
-    </script>
+    <script src="js/chart.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>`

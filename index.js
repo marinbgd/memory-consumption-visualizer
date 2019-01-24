@@ -1,7 +1,7 @@
 const fs = require('fs');
 const parseTextLine = require('./tools/parsers.js').parseTextLine;
-const getSourceReportFilePathFromArgs = require('./tools/file.helper.js').getSourceReportFilePathFromArgs;
-const processRawTxtFileLines = require('./tools/file.helper.js').processRawTxtFileLines;
+const getSourceReportFilePathsFromArgs = require('./tools/file.helper.js').getSourceReportFilePathsFromArgs;
+const processRawTxtFilesLines = require('./tools/file.helper.js').extractDataFromRawFiles;
 
 const ncp = require('ncp').ncp;
 const rimraf = require('rimraf');
@@ -51,12 +51,13 @@ function createFileFromString (filePath, stringContent) {
 
 async function start() {
     try {
-        const reportFilePath = getSourceReportFilePathFromArgs(process.argv);
+        const reportFilePaths = getSourceReportFilePathsFromArgs(process.argv);
         await clearBuildFolder();
-        const jsonReport = processRawTxtFileLines(reportFilePath, parseTextLine);
-        const htmlString = getCompiledTemplate(jsonReport);
+        const jsonReports = processRawTxtFilesLines(reportFilePaths, parseTextLine);
+        const htmlString = getCompiledTemplate(jsonReports);
         createFileFromString(__dirname + '/' + BUILD_FOLDER + '/' + 'index.html', htmlString);
         copyBuildFiles();
+
     } catch (error) {
         console.log(error)
     }
