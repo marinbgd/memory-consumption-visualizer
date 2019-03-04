@@ -36,4 +36,15 @@ module.exports = {
             heap: trimmedHeap,
         };
     },
+
+    parseAdbTopProcessReportLine ( adbReport ) {
+        const MEMORY_CONSUMPTION_DATA_INDEX = 6;
+
+        const reportLines = adbReport.split(`\r\n`);
+        const resultsLine = reportLines[reportLines.length - 1]; // it is the last line
+        const resultsValues = resultsLine.split(' ');
+        const trimmedValues = resultsValues.filter(Boolean); // filter out all empty values
+        const memoryConsumption = trimmedValues[MEMORY_CONSUMPTION_DATA_INDEX]
+        return memoryConsumption.replace('M', ''); // remove 'M' from value
+    }
 };
