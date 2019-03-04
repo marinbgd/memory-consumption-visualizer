@@ -38,7 +38,7 @@ module.exports = {
     },
 
     parseAdbTopProcessReportLine ( adbReport ) {
-        const MEMORY_CONSUMPTION_DATA_INDEX = 6;
+        const MEMORY_CONSUMPTION_DATA_INDEX = 5;
 
         const reportLines = adbReport.split(`\r\n`);
         const resultsLine = reportLines[reportLines.length - 1]; // it is the last line
