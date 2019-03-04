@@ -1,7 +1,7 @@
 # Chameleon memory consumption visualizer
 
 ## Usage
-    * run from command line "node chart.js memory_report.json reports/baseline1.txt"
+    * run from command line "node index.js memory_report.json reports/baseline1.txt"
     * NOTE: file names should be with relative paths
     * build of complete HTML report is created inside /build folder
     * load /build/index.html into a browser

@@ -1,5 +1,6 @@
 const fs = require('fs');
-const parseTextLine = require('./tools/parsers.js').parseTextLine;
+// const parseTextLine = require('./tools/parsers.js').parseTextLine;
+const parseTextLine = require('./tools/parsers.js').parseAndromanLogLine;
 const getSourceReportFilePathsFromArgs = require('./tools/file.helper.js').getSourceReportFilePathsFromArgs;
 const processRawTxtFilesLines = require('./tools/file.helper.js').extractDataFromRawFiles;
 

@@ -21,4 +21,19 @@ module.exports = {
             heap: trimmedHeap,
         };
     },
+
+    parseAndromanLogLine ( line ) {
+
+        const HEAP_SIZE_PARAM_NAME = '// MEMORY USAGE ';
+
+        // get heap size
+        const heapStartPosition = line.indexOf(HEAP_SIZE_PARAM_NAME);
+        const heap = line.substring( heapStartPosition + HEAP_SIZE_PARAM_NAME.length);
+        const trimmedHeap = +heap.replace('MB', '');
+
+        return {
+            time: null,
+            heap: trimmedHeap,
+        };
+    },
 };
