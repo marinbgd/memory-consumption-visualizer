@@ -1,4 +1,4 @@
-# Chameleon memory consumption visualizer
+# Memory consumption visualizer
 
 ## Usage
     * run from command line "node index.js memory_report.json reports/baseline1.txt"
