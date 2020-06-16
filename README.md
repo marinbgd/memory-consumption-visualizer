@@ -1,4 +1,6 @@
-# Memory consumption visualizer
+# simple-json-visualizer
+- Visualize and compare simple data
+- can run with multiple inputs and overlay all
 
 ## Usage
     * run from command line "node index.js memory_report.json reports/baseline1.txt"
